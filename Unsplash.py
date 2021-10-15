@@ -1,46 +1,14 @@
 # File     :Unsplash.py
 # Author   :WooChi
 # Time     :2021/09/06
-# Function :
+# Function :自动下载unsplash上的图片
 # Version  :
-# import requests
-# import os
-# from bs4 import BeautifulSoup
-# import re
-# import bs4
-# import json
-# url = "https://unsplash.com/napi/photos?page="
-# base = "&per_page=12"
-# def getHTML(url):
-#     r = requests.get(url)
-#     jd = json.loads(r.text)
-#     list = []
-#     for i in jd:
-#         t = i['urls']["raw"]
-#         list.append(t)
-#     root = "F:\\Chrome Downloads\\Pic"
-#     global count
-#     for i in list:
-#         print(i)
-#         path = root + str(count) + '.jpg'
-#         count = count + 1
-#         if not os.path.exists(root):
-#             os.mkdir(root)
-#         if not os.path.exists(path):
-#             r = requests.get(i)
-#
-#             with open(path, 'wb') as f:
-#                 f.write(r.content)
-# count = 0
-# for i in range(1,3):
-#     u = url + str(i)+base
-#     print(u)
-#     getHTML(u)
 
-# -*- coding:UTF-8 -*-
 import requests, json, time
 from contextlib import closing
 from icecream import ic
+
+
 ic.configureOutput(prefix='woohoo||')
 class get_photos(object):
 	def __init__(self):

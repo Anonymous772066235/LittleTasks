@@ -38,7 +38,7 @@ def heightDifference_2(target, data, k=10):
         if idx1[0] <0.001:
             h.append(target[i, 2] - data[idx1[1], 2])
     h = np.array(h)
-    h=np.abs(h)
+    h = np.abs(h)
     mean_h = np.mean(h)
     return mean_h, h
 
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     # ic(ph)
 
     dem01 = np.loadtxt(
-        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190721_20180704_test.txt',
+        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190524_20180515_test.txt',
         delimiter=' ')
     dem02 = np.loadtxt(
         'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190421_20200419_test.txt',

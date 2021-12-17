@@ -29,7 +29,7 @@ def creat_new_py(py_name):
 
 
 if __name__=='__main__':
-    py_name='creat_test_02'
+    py_name='LSDtest1104'
     creat_new_py(py_name)
 
     # while True:

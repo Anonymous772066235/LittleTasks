@@ -14,7 +14,7 @@ import sys
 sys.setrecursionlimit(1000000)
 import numpy as np
 
-np.set_printoptions(precision=3, suppress=True, threshold=np.inf, linewidth=100)
+# np.set_printoptions( suppress=True, threshold=np.inf, linewidth=100)
 
 
 def denoising(data, sigma=0.2):
@@ -62,12 +62,12 @@ if __name__ == "__main__":
     # ic(ph)
 
     dem01 = np.loadtxt(
-        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190721_20180704_test.txt',
+        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190721_test_180515.txt',
         delimiter=' ')
     dem02 = np.loadtxt(
-        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190524_20180515_test.txt',
+        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190721_vali_180515.txt',
         delimiter=' ')
-    # ic(len(ph))
+    # ic(len(ph)
     ic(len(dem01))
     ic(len(dem02))
 

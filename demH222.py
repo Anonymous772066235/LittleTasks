@@ -1,6 +1,6 @@
 # File      :demH2.py
 # Author    :WJ
-# Function  :
+# Function  :高程交叉验证
 # Time      :2021/08/08
 # Version   :
 # Amend     :
@@ -11,10 +11,10 @@ from scipy.spatial import KDTree
 from icecream import ic
 import sys
 
-sys.setrecursionlimit(1000000)
+# sys.setrecursionlimit(1000000)
 import numpy as np
 
-np.set_printoptions(precision=3, suppress=True, threshold=np.inf, linewidth=100)
+np.set_printoptions(suppress=True, threshold=np.inf, linewidth=100)
 
 
 def denoising(data, sigma=0.2):
@@ -57,28 +57,30 @@ if __name__ == "__main__":
     # dem_20190421_20190301
     # dem_20190222_20190224
 
-    # ph=np.loadtxt('D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/data/ATL03/20190421_order_validate/seafloor_validate.txt')
-    # ph=ph[:,[0,1,4]]
-    # ic(ph)
+    ph_floor=np.loadtxt('D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/0.3_20190721.txt',delimiter=' ')
+    # ic(ph_floor)
+    ic(len(ph_floor))
+    ph_surface=np.loadtxt('D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/data/ATL03/20190721_validate/seasurface.txt',delimiter=',')
 
+    # ic(ph_surface)
+    seaH=np.mean(ph_surface[:,4])
+    ic(seaH)
+    ic(ph_floor)
+    ph_floor[:,2]=ph_floor[:,2]-seaH
+    ic(ph_floor)
     dem01 = np.loadtxt(
-        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190524_20180515_test.txt',
+        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190721_test_180515.txt',
         delimiter=' ')
-    dem02 = np.loadtxt(
-        'D:/Program Files/JetBrains/PycharmProjects/GUI_BathymetricModel/Output/dem_20190421_20200419_test.txt',
-        delimiter=' ')
-    # ic(len(ph))
-    ic(len(dem01))
-    ic(len(dem02))
 
-    if len(dem01)>=len(dem02):
-        rdm = np.random.randint(0, len(dem02), 1000)
-        # ic(rdm)
-        mean, h = heightDifference_2(dem02[rdm], dem01,k=1)
-    else:
-        rdm = np.random.randint(0, len(dem01), 1000)
-        # ic(rdm)
-        mean, h = heightDifference_2(dem01[rdm], dem02, k=1)
+    # ic(dem01)
+    ic()
+
+
+
+
+    mean, h = heightDifference_2(ph_floor, dem01,k=1)
+
+
 
     # mean,h = heightDifference_2(ph, dem01,k=1)
 

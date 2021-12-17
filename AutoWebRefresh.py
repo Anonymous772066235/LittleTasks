@@ -19,9 +19,10 @@ from selenium.webdriver.common.by import By
 
 def refresh(sleeptime, num):
     for i in range(num):
-        print(i,str((i/num)*100)+'%')
+        print(i,str('{:.2f}'.format((i/num)*100))+'%')
         time.sleep(sleeptime)
         driver.refresh()
+    print(num,str('{:.2f}'.format((num/num)*100))+'%')
     driver.close()
 
 
@@ -29,7 +30,7 @@ if __name__ == '__main__':
     # username = input('username:')
     # password = input('password:')
     username = 'WooChi'
-    password = 'fWJycnm7'
+    password =''
 
     url = 'https://ca.csu.edu.cn/authserver/login?service=http%3A%2F%2F202.197.71.93%2FexamIDSLogin.php'
     driver = webdriver.Chrome()
@@ -47,5 +48,5 @@ if __name__ == '__main__':
     url = 'http://202.197.71.93//redir.php?catalog_id=121&object_id=2735'
     driver.get(url)
     sleeptime = 242
-    num = 60
+    num = 5
     refresh(sleeptime, num)

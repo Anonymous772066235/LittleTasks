@@ -1,0 +1,1 @@
+/home/data/wj/Reconstruction3D/2022_11/29-16_00_00/GroundPointCloud.txt
